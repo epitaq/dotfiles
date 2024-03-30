@@ -21,6 +21,14 @@
         ];
         specialArgs = { inherit inputs;};
       };
+
+      u938 = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/u938/configuration.nix 
+        ];
+        specialArgs = { inherit inputs;};
+      };
       # myNixOS = inputs.nixpkgs.lib.nixosSystem {
       #   system = "aarch64-linux";
       #   modules = [
