@@ -3,6 +3,6 @@
         ./neovim
         ./zsh
         ./git
-        # ./screen
+        ./screen
     ];
 }

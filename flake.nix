@@ -14,12 +14,12 @@
   outputs = {self, nixpkgs, home-manager, ...} @ inputs: {
     nixosConfigurations = {
       # utm setting
-      utm = lib.nixosSystem {
+      utm = inputs.nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
           ./hosts/utm/configuration.nix 
         ];
-        specialArgs = { inherit inputs outputs;};
+        specialArgs = { inherit inputs;};
       };
       # myNixOS = inputs.nixpkgs.lib.nixosSystem {
       #   system = "aarch64-linux";
@@ -33,14 +33,24 @@
     };
     homeConfigurations = {
       # utm setting
-      utm = lib.homeManagerConfiguration {
+      utm = inputs.nixpkgs.lib.homeManagerConfiguration {
         pkgs = import inputs.nixpkgs {
           system = "aarch64-linux";
           config.allowUnfree = true;
         };
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs;};
         modules = [
           ./hosts/utm/home.nix
+        ];
+      };
+      u938 = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = import inputs.nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/u938/home.nix
         ];
       };
       # myHome = inputs.home-manager.lib.homeManagerConfiguration {
