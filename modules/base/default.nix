@@ -1,7 +1,8 @@
 {
   imports = [
     ./i18n.nix
-  ]
+    ./font.nix
+  ];
 
   nix = {
     settings = {
