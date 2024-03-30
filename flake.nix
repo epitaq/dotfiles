@@ -4,14 +4,21 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    
     # xremap.url = "github:xremap/nix-flake";
+    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {self, nixpkgs, home-manager, ...} @ inputs: {
+  outputs = {self, nixpkgs, nixos-hardware, home-manager, nix-vscode-extensions, ...} @ inputs: {
     nixosConfigurations = {
       # utm setting
       utm = inputs.nixpkgs.lib.nixosSystem {

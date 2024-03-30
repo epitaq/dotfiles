@@ -1,6 +1,7 @@
 {
   imports = [
     ../../home-manager/cli
+    ../../home-manager/desktop
   ];
 
   home = rec {
