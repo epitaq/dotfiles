@@ -34,9 +34,11 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "jp";
-    xkbVariant = "";
-    libinput.naturalScrolling = true;
+    xkb = {
+      layout = "jp";
+      variant = "";
+    };
+    libinput.touchpad.naturalScrolling = true;
   };
 
   # Configure console keymap
