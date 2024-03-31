@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./vscode
+    ./xremap
   ];
 }
