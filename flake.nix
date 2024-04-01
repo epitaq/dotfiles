@@ -16,6 +16,10 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    xremap = {
+      url = "github:xremap/nix-flake";
+    };
   };
 
   outputs = {self, nixpkgs, nixos-hardware, home-manager, nix-vscode-extensions, ...} @ inputs: {

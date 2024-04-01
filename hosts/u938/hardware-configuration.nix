@@ -13,6 +13,8 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.kernelParams = [ "i915.force_probe=5916" ];
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c5c94eb7-978b-4b88-acfb-5e6ea7ca42de";
       fsType = "ext4";

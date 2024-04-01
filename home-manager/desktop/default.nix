@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
+    ./firefox
     ./vscode
-    ./xremap
+    ./mozc
   ];
 }

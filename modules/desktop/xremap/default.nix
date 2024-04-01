@@ -7,9 +7,17 @@
     userName = "epita";
     serviceMode = "system";
     config = {
+      modmap = [
+        {
+          name = "CapsLock is dead";
+          remap = {
+            CapsLock = "Ctrl_L";
+          };
+        }
+      ];
       keymap = [
         {
-          application.not = ["gnome-terminal-server" "Alacritty" "nyaovim"];
+          application.not = ["gnome-terminal-server" "Alacritty" "nyaovim" "konsole"];
           remap = {
             C-b = "Left";
             C-f = "Right";
@@ -43,6 +51,7 @@
             "Super-t" = "C-t";
             "Super-x" = "C-x";
             "Super-z" = "C-z";
+            "Super-s" = "C-s"; # add epita
 
             "Super-Shift-a" = "C-a";
             "Super-Shift-c" = "C-c";
@@ -58,7 +67,7 @@
           };
         }
         {
-          application.only = ["xfce4-terminal" "Alacritty" "gnome-terminal-server"];
+          application.only = ["xfce4-terminal" "Alacritty" "gnome-terminal-server" "konsole"];
           remap = {
             "Super-c" = "Ctrl-Shift-c";
             "Super-v" = "Ctrl-Shift-v";
